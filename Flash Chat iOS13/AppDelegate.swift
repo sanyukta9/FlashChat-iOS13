@@ -7,14 +7,27 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseFirestore
+import IQKeyboardManagerSwift
 
-@UIApplicationMain
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //firebase firestore check
+        FirebaseApp.configure()
+        let db = Firestore.firestore()
+        print(db)
+        
+        //lift keyboard up while typing
+        IQKeyboardManager.shared.isEnabled = true
+        //selects anywhere and it will collapse keyboard
+        IQKeyboardManager.shared.resignOnTouchOutside = true
+        
         return true
     }
 
